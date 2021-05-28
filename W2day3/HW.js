@@ -1,4 +1,30 @@
 "use strict";
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        if (typeof b !== "function" && b !== null)
+            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
 exports.__esModule = true;
 exports.isWeekend = void 0;
 /* 1-) Create an application app.ts which will import the following three modules:
@@ -21,9 +47,8 @@ var item = {
 };
 // let applyCoupon= (Iitem) => (discount) => Iitem-(Iitem*0.1);
 // applyCoupon(100)(10)
-var applyCoupon;
--discount;
-applyCoupon(item)(10); // 180
+//let applyCoupon: (i: Iitem) => (discount: number) => (price:number)=>price-discount;
+//applyCoupon(item)(10)// 180
 /*3. Module 03 - module03.ts
 Write a function function isDual(arr: number[]): boolean{} that accepts an Array of
 numbers. An array is said to be dual if it has an even number of elements and each pair
@@ -40,6 +65,38 @@ function isDual(arr) {
     return result;
 }
 isDual([1, 1, 2, 2]);
+var MyStorage = /** @class */ (function () {
+    function MyStorage() {
+        this.storage = {};
+    }
+    MyStorage.prototype.getItem = function (key) {
+        return this.storage[key];
+    };
+    MyStorage.prototype.setItem = function (key, value) {
+        this.storage[key] = value;
+    };
+    MyStorage.prototype.getStorage = function () {
+        return this.storage;
+    };
+    return MyStorage;
+}());
+var ImmutableStorage = /** @class */ (function (_super) {
+    __extends(ImmutableStorage, _super);
+    function ImmutableStorage() {
+        var _this = _super.call(this) || this;
+        Object.freeze(_this.storage);
+        _this.storage2 = __assign({}, _this.getStorage());
+        return _this;
+    }
+    // complete the code here
+    ImmutableStorage.prototype.setItem = function (key, value) {
+        this.storage2[key] = value;
+    };
+    return ImmutableStorage;
+}(MyStorage));
+var immute = new ImmutableStorage();
+immute.setItem('hello', "world");
+console.log(immute);
 /* 5. Write a function function removeDuplicates(): number[] {} that will work on any Array
 object, the function will remove all the duplicate numbers from an array.*/
 function removeDuplicates(array) {

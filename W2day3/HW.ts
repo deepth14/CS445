@@ -27,8 +27,8 @@ const item: Iitem = {
 }
 // let applyCoupon= (Iitem) => (discount) => Iitem-(Iitem*0.1);
 // applyCoupon(100)(10)
-let applyCoupon: (i: Iitem) => (discount: number) => (price:number)=>price-discount;
-applyCoupon(item)(10)// 180
+//let applyCoupon: (i: Iitem) => (discount: number) => (price:number)=>price-discount;
+//applyCoupon(item)(10)// 180
 
 /*3. Module 03 - module03.ts
 Write a function function isDual(arr: number[]): boolean{} that accepts an Array of
@@ -46,6 +46,38 @@ function isDual(arr: number[]) {
     return result;
 }
 isDual([1, 1, 2, 2])
+/*4. Complete the code for the ImmutableStorage class that will override setItem() to work
+with an immutable Storage object.
+ */
+
+type Obj = { [key: string]: string };
+class MyStorage {
+protected storage: Obj = {};
+getItem(key: string): string {
+return this.storage[key]
+}
+setItem(key: string, value: string): void {
+this.storage[key] = value
+}
+getStorage(): Obj {
+return this.storage;
+}
+}
+class ImmutableStorage extends MyStorage {
+storage2: Obj
+constructor() {
+super();
+Object.freeze(this.storage);
+this.storage2 = { ...this.getStorage() }
+}
+// complete the code here
+setItem(key: string, value: string): void {
+this.storage2[key] = value
+}
+}
+let immute = new ImmutableStorage();
+immute.setItem('hello', "world");
+console.log(immute)
 
 /* 5. Write a function function removeDuplicates(): number[] {} that will work on any Array
 object, the function will remove all the duplicate numbers from an array.*/
