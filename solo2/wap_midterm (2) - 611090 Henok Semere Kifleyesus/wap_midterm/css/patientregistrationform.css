@@ -1,0 +1,11 @@
+li {
+    border-right: 1px solid;
+    border-color: white;
+}
+button {
+    margin-left: 10px;
+}
+#display_table {
+    margin-top: 10px;
+}
+

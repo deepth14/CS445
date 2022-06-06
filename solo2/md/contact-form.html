@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CS472-WAP - Contact Form</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    
+    <!-- 1. External stylesheet-->
+    <link rel="stylesheet" href="css/styles.css" type="text/css">
+    <script defer src="js/app.js"></script>
+</head>
+<body>
+<header>
+    <!-- TODO Add nav here -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">The South West-Regional Census</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item ">
+                    <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="contact-form.html">Census Form</a>
+                </li>
+
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <p id="time"></p>
+
+            </form>
+        </div>
+    </nav>
+</header>
+    <main>
+        <div class="container">
+            <!-- TODO Add content here -->
+            <h1 >Customer Contact Form</h1>
+            <hr>
+            <!-- Implement Web form here-->
+            <form id="consusForm" method="POST" action="contact-form-handler">
+                <fieldset>
+                    <legend></legend>
+                    <div class="form-group">
+                        <label for="personalName">*Full Name:</label>
+                        <input  required class="form-control" type="text" name="name" id="personalName" placeholder="Enter your name" autofocus>
+                        <small class="form-text text-muted">Enter your full name</small>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="col-form-label col-form-label-lg">*Citizen ID</label>
+                                <input type="number" class="form-control form-control-lg" id="citizenId" placeholder="XXXXXXXXXX" pattern="\d{10}" title="enter 10 digits" required>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="col-form-label col-form-label-lg">*social Security Number</label>
+                                <input type="text" class="form-control form-control-lg" id="ssn" placeholder="XXX-XX-XXXX" pattern="[0-9]{3}-[0-9]{2}-[0-9]{4}" title="correct format is xxx-xx-xxxx">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="state">*State:</label>
+                                <select class="form-control" id="state" name="state">
+                                    <option value="null">Select...</option>
+                                    <option value="Arizon">Arizon</option>
+                                    <option value="New mexico">New Mexico</option>
+                                    <option value="Texas">Texas</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label >*Senior Citizen:</label>
+                                <div class="custom-control custom-radio">
+                                    <input required="" type="radio" name="radioCitizen" id="radioCitizenYes" class="custom-control-input" value="Yes">
+                                    <label for="radioCitizenYes" class="custom-control-label">Yes</label>
+                                </div>
+                                <div class="custom-control custom-radio">
+                                    <input type="radio" name="radioCitizen" id="radioCitizenNo" class="custom-control-input" value="No">
+                                    <label for="radioCitizenNo" class="custom-control-label">No</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button id="btnreset" type="reset" class="btn btn-primary ">Reset</button>
+                    <button id="btnSubmit" type="submit" class="btn btn-primary ">Submit</button>
+                </fieldset>
+            </form>
+            <table class="table table-striped" id="tableCansus">
+                <thead>
+                <tr>
+                    <th scope="col">Citizen ID</th>
+                    <th scope="col">Social security</th>
+                    <th scope="col">Full Name</th>
+                    <th scope="col">State</th>
+                    <th scope="col">Senior</th>
+                </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+        </div>
+    </main>
+    <footer>
+        <!-- TODO Add footer content here -->
+        <div>
+            <span id="footerName">O. Kalu ::: CS472-WAP</span>
+            <span id="footerTime">&copy; April 2020</span>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+</body>
+</html>
