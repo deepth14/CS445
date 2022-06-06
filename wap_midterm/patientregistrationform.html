@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/patientregistrationform.css">
+    <script defer src="./js/jquery-3.5.0.js"></script>
+    <script defer src="./js/patientregistrationform.js"></script>
+    <title>HolyCross Medical Center Patient Registration Form</title>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-danger">
+            <a class="navbar-brand" href="#">HolyCross Medical Center</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="patientregistrationform.html">Patients</a>
+                    </li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0">
+                    <span id="span" style="color: #ffffff; margin-right: 0em;" ></span>
+                    <label id="Welcome" style="margin:1em; color: #ffffff;">Welcome, Guests </label>
+                </form>
+              
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class="container">
+            <h1>Patients Registration</h1>
+            <hr>
+            <form action="post" id="patient_registration_form" name="patientRegistrationForm">
+                <fieldset>
+                    <legend></legend>
+                    
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="patientID">*Patients ID No:</label>
+                                <input required pattern="E?P-\d{3}-\d{6}"type="text" class="form-control" name="patientID" id="patient_id" placeholder="EP-XXX-XXXXXX">
+                                <small class="form-text text-muted">Enter the Patient ID Number in the specified
+                                    format</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="firstName">*First Name:</label>
+                                <input required class="form-control" type="text" name="firstName" id="first_name" placeholder="Enter First Name">
+                                <small class="form-text text-muted">Enter the Patient's First Name</small>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="middleName">*Middle Initial(s):</label>
+                                <input required class="form-control" type="text" name="middleName" id="middle_initials" placeholder="Enter Middle Initial(s)">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="firstName">*Last Name:</label>
+                                <input required class="form-control" type="text" name="lastName" id="last_name" placeholder="Enter Last Name">
+                                <small class="form-text text-muted">Enter the Patient's Last Name</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="dateOfBirth">*Date of Birth</label>
+                                <input class="form-control" type="date" name="dateOfBirth" id="date_of_birth">
+                            </div> 
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                
+                                <label for="department">*Department:</label>
+                                <select required name="department" id="department"  class="form-control">
+                                    <option value="">Select...</option>
+                                    <option value="Cardiology">Cardiology</option>
+                                    <option value="Ear, Nose and Throat">Ear, Nose and Throat</option>
+                                    <option value="Primary Care">Primary Care</option>
+                                    <option value="Unassigned">[Unassigned]</option>
+                                </select>   
+                            </div>
+                        </div>
+                                
+                        <div class="col-md-4">
+                            <label>*Is this an Out-patient?</label>
+                            <div class="form-group">
+                                <div class="custom-control custom-radio custom-control-inline">
+                                    <input required type="radio" name="outPatient" id="yes" value="Yes">
+                                    <label for="yes">Yes</label>
+                                </div>
+                                <div class="custom-control custom-radio custom-control-inline">
+                                    <input required type="radio" name="outPatient" id="no" value="No">
+                                    <label for="no">No</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="text-align: right;" id="buttons">
+                        <input type="reset" value="Reset" class="btn btn-secondary btn-lg">
+                        <input style="color: white;" type="submit" value="Register Patient" id="submit" class="btn btn-inline bg-danger">
+                        
+                    </div>
+                   
+                </fieldset>
+            </form>
+            <div class="row">                      
+                
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="elderlyPatientsCheckbox" value="" id="elderly_checkbox">
+                    <label class="form-check-label" for="elderlyPatientsCheckbox"> Show Elderly Patients only</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" name="outpatientCheckbox" id="outpatient_checkbox" >
+                    <label class="form-check-label" for="outpatientCheckbox">Show Out-Patients only</label>
+                  </div>
+
+
+
+                  <div class="col-sm-6">
+        
+                    &nbsp;  &nbsp;
+        
+        
+                </div>
+        
+               
+        
+            </div>
+
+            <table id="display_table" class="table table-striped">
+                <thead id="table_head">
+                    <tr id="column_fields">
+                        <th scope="col">Patient ID No</th>
+                        <th scope="col">First Name</th>
+                        <th scope="col">Middle Initial(s)</th>
+                        <th scope="col">Last Name</th>
+                        <th scope="col">Date of Birth</th>
+                        <th scope="col">Department</th>
+                        <th scope="col">Out-patient?</th>
+                    </tr>
+                </thead>
+                <tbody id="data_display"></tbody>
+
+            </table>
+        </div>
+    </main>
+    <footer class="bg-secondary">
+        <div>
+            <a style="float: right; margin-right:1em;"
+href="https://validator.w3.org/check/referer"> <img
+src="http://mumstudents.org/cs472/2014-09/images/w3c-html.png"
+alt="html validator"/></a>
+            <span style= "margin-left: 1em; color: white;"  >Abrham Sibahatu ::: CS472-WAP</span>
+            <span style="float: right;margin-right: 1em;">&copy; June 2022</span>
+        </div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+
+</html>
+
